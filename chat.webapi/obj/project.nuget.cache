@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aFtQTuOiupBYcqW6gmfxXY4uGeDxH1FKIs7Q7jEZ6NJ7jTfJHkviAnDjdxQLQgtj5R6Un21wHTCrAJPJ0rEiTg==",
+  "dgSpecHash": "DWiC7u8U2QQT8A4VDq0J+E33a61+47LGtZTRXp3L179HUM+/GIpg5ks2dwli8Hpq+KqrOZ7EXTN2cLjHRNNxUw==",
   "success": true,
-  "projectFilePath": "D:\\Programmierung\\Web\\analogue-chat\\chat\\chat.csproj",
+  "projectFilePath": "D:\\Programmierung\\Web\\analogue-chat\\chat.webapi\\chat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Philip\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Philip\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
