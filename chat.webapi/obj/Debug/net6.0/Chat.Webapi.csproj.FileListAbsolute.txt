@@ -1,0 +1,7 @@
+P:\School\projects\analogue-chat\chat.webapi\obj\Debug\net6.0\Chat.Webapi.csproj.AssemblyReference.cache
+P:\School\projects\analogue-chat\chat.webapi\obj\Debug\net6.0\Chat.Webapi.GeneratedMSBuildEditorConfig.editorconfig
+P:\School\projects\analogue-chat\chat.webapi\obj\Debug\net6.0\Chat.Webapi.AssemblyInfoInputs.cache
+P:\School\projects\analogue-chat\chat.webapi\obj\Debug\net6.0\Chat.Webapi.AssemblyInfo.cs
+P:\School\projects\analogue-chat\chat.webapi\obj\Debug\net6.0\Chat.Webapi.csproj.CoreCompileInputs.cache
+P:\School\projects\analogue-chat\chat.webapi\obj\Debug\net6.0\Chat.Webapi.MvcApplicationPartsAssemblyInfo.cs
+P:\School\projects\analogue-chat\chat.webapi\obj\Debug\net6.0\Chat.Webapi.MvcApplicationPartsAssemblyInfo.cache

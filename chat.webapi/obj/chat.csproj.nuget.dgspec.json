@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programmierung\\Web\\analogue-chat\\chat.webapi\\chat.csproj": {}
+    "P:\\School\\projects\\analogue-chat\\chat.webapi\\chat.csproj": {}
   },
   "projects": {
-    "D:\\Programmierung\\Web\\analogue-chat\\chat.webapi\\chat.csproj": {
+    "P:\\School\\projects\\analogue-chat\\chat.webapi\\chat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programmierung\\Web\\analogue-chat\\chat.webapi\\chat.csproj",
+        "projectUniqueName": "P:\\School\\projects\\analogue-chat\\chat.webapi\\chat.csproj",
         "projectName": "chat",
-        "projectPath": "D:\\Programmierung\\Web\\analogue-chat\\chat.webapi\\chat.csproj",
-        "packagesPath": "C:\\Users\\Philip\\.nuget\\packages\\",
-        "outputPath": "D:\\Programmierung\\Web\\analogue-chat\\chat.webapi\\obj\\",
+        "projectPath": "P:\\School\\projects\\analogue-chat\\chat.webapi\\chat.csproj",
+        "packagesPath": "C:\\Users\\deral\\.nuget\\packages\\",
+        "outputPath": "P:\\School\\projects\\analogue-chat\\chat.webapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Philip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\deral\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
