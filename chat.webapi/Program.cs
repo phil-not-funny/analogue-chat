@@ -1,35 +1,77 @@
 using Chat.Application.Infrastructure;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Text.Json.Serialization;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ChatContext>(opt =>
+internal class Program
 {
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("SQLServer"), o => o.UseQuerySplittingBehaviour(QuerySplittingBehaviour.SingleQuery));
-});
+    private static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+        byte[] secret = Convert.FromBase64String(builder.Configuration["JwtSecret"]);
+        builder.Services
+            .AddAuthentication(options => options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(secret),
+                    ValidateAudience = false,
+                    ValidateIssuer = false
+                };
+            });
 
-var app = builder.Build();
+        builder.Services.AddControllers().AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            //options.JsonSerializerOptions.WriteIndented = true;
+        });
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+        builder.Services.AddControllers();
+        builder.Services.AddDbContext<ChatContext>(opt =>
+        {
+            opt.UseSqlServer(
+                builder.Configuration.GetConnectionString("SqlServer"),
+                o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SingleQuery));
+        });
+
+        if (builder.Environment.IsDevelopment())
+        {
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    });
+            });
+        }
+
+        var app = builder.Build();
+        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(builder.Configuration["SyncfusionKey"]);
+        if (app.Environment.IsDevelopment())
+        {
+            using (var scope = app.Services.CreateScope())
+            {
+                using (var db = scope.ServiceProvider.GetRequiredService<ChatContext>())
+                {
+                    db.Database.EnsureDeleted();
+                    db.Database.EnsureCreated();
+                    db.Seed();
+                }
+            }
+            app.UseCors();
+        }
+
+        app.MapControllers();
+        app.UseAuthentication();
+        app.UseAuthorization();
+        app.UseStaticFiles();
+        app.MapFallbackToFile("index.html");
+        app.Run();
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
